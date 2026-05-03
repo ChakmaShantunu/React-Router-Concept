@@ -22,7 +22,7 @@ const getSomeRecords = async () => {
   ];
 };
 
-// const usersPromise = fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json());
+const usersPromise = fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json());
 
 const router = createBrowserRouter([
   {
@@ -43,10 +43,10 @@ const router = createBrowserRouter([
         loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
         Component: Members
       },
-      // {
-      //   path: "users2",
-      //   element: <Suspense fallback={<span>Loading...</span>}><Users2 usersPromise={usersPromise}></Users2></Suspense>
-      // }
+      {
+        path: "users2",
+        element: <Suspense fallback={<span>Loading...</span>}><Users2 usersPromise={usersPromise}></Users2></Suspense>
+      }
     ]
   },
   {

@@ -33,9 +33,8 @@ const router = createBrowserRouter([
       { path: "mobiles", Component: Mobiles },
       { path: "laptops", Component: Laptops },
       {
-        path: "users", loader: async () => {
-          return { records: await getSomeRecords() };
-        },
+        path: "users",
+        loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
         Component: Users
       },
       {

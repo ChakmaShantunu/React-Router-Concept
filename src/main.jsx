@@ -14,6 +14,7 @@ import Users from './components/Users/Users';
 import Members from './components/Members/Members';
 import Users2 from './components/Users2/Users2';
 import UserDetails from './components/UserDetails/UserDetails';
+import Posts from './components/Posts/Posts';
 
 
 const getSomeRecords = async () => {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "users2",
         element: <Suspense fallback={<span>Loading...</span>}><Users2 usersPromise={usersPromise}></Users2></Suspense>
+      },
+      {
+        path: "posts",
+        loader: () => fetch('https://jsonplaceholder.typicode.com/posts'),
+        Component: Posts
       }
     ]
   },

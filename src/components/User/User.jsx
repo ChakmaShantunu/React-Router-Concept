@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import { Link, Navigate } from 'react-router';
+import { Link, Navigate, useLocation } from 'react-router';
 import UserDetails2 from '../UserDetails2/UserDetails2';
 
 
@@ -16,12 +16,15 @@ const User = ({ user }) => {
     const { name, email, phone, id } = user;
     console.log(user);
 
+    const location = useLocation();
+    console.log(location);
+
     const [showInfo, setShowInfo] = useState(false)
 
     const userPromise = fetch(`https://jsonplaceholder.typicode.com/users/${id}`).then(res => res.json());
 
     const [visitHome, setVisitHome] = useState(false);
-    
+
     if (visitHome) {
         return <Navigate to={"/"}></Navigate>
     }

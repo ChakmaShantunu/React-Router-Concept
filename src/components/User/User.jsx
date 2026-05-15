@@ -43,6 +43,9 @@ const User = ({ user }) => {
             }
 
             <button onClick={() => setVisitHome(true)}>Visit Home</button>
+<button className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
+        Click Me
+      </button>
         </div>
     );
 };
